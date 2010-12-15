@@ -1,0 +1,14 @@
+h1. Play! User Example
+
+p. This projects shows simple content negotiation with Play!.
+
+p. The URI scheme and the matching controller methods are as follows (see "routes file":https://github.com/sebhoss/play-user-sample/blob/master/conf/routes ):
+
+bc. 
+GET     /                                       Users.index
+GET     /user/{id}                              Users.show
+POST    /user/                                  Users.persist
+PUT     /user/{id}                              Users.update
+DELETE  /user/{id}                              Users.delete
+
+p. Depending on the clients Accept header either a HTML, XML or JSON representation will be send.
