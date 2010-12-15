@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'User: ' + user.name /}
+
+<a href="@{Users.index()}">&lt;-- back</a>
+
+<h1>${user.name}</h1>
+
+#{form action:@Users.update(user.id), enctype:'multipart/form-data'}
+  <input id="user.name" type="text" name="user.name" value="${user.name}">
+  <input id="user.email" type="text" name="user.email" value="${user.email}">
+  <input id="user.age" type="text" name="user.age" value="${user.age}">
+  <input type="submit" value="Update">
+#{/form}
+	
+#{form @delete(user.id)}
+  <input type="submit" value="Delete">
+#{/form}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    #{list items:users, as:'user' }
+    <user>
+        <id>${user.id}</id>
+        <name>${user.name}</name>
+        <email>${user.email}</email>
+        <age>${user.age}</age>
+    </user>
+    #{/list}
+</users>

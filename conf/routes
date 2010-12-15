@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Users.index
+GET		/user/{id}								Users.show
+POST    /user/                					Users.persist
+PUT     /user/{id}            					Users.update
+DELETE  /user/{id}            					Users.delete
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public

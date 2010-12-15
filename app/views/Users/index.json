@@ -1,0 +1,10 @@
+[
+    #{list items:users, as:'user'}
+    {
+        "id": "${user.id}",
+        "name": "${user.name}",
+        "email": "${user.email}",
+        "age": "${user.age}"
+    }#{if users.get(users.size() - 1) != user},#{/if}
+    #{/list}
+]
