@@ -85,6 +85,19 @@ public class Users extends Controller {
         render(user);
     }
     
+    public static void image(Long id) {
+    	// Fetch user from DB
+        User user = safeFindById(id);
+        
+        // Send image
+        if (user.image != null && user.image.exists()) {
+        	response.contentType = user.image.type();
+        	renderBinary(user.image.get(), user.image.length());
+        } else {
+        	notFound();
+        }
+    }
+    
     /**
      * Tries to fetch an {@link User} from the database. If the user could not be found
      * a 404 error will be thrown.
@@ -92,7 +105,7 @@ public class Users extends Controller {
      * @param id	The ID of the user to fetch.
      * @return		The user with the given ID or a 404.
      */
-    private static User safeFindById(Object id) {
+    private static User safeFindById(Long id) {
     	User user = User.findById(id);
     	
     	notFoundIfNull(user);

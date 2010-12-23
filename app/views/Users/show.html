@@ -6,9 +6,12 @@
 <h1>${user.name}</h1>
 
 #{form action:@Users.update(user.id), enctype:'multipart/form-data'}
-  <input id="user.name" type="text" name="user.name" value="${user.name}">
-  <input id="user.email" type="text" name="user.email" value="${user.email}">
-  <input id="user.age" type="text" name="user.age" value="${user.age}">
+  <input type="text" name="user.name" value="${user.name}">
+  <input type="email" name="user.email" value="${user.email}">
+  <input type="number" name="user.age" value="${user.age}">
+  #{if user?.image?.exists()}<a href="@{image(user.id)}">Download image (${user?.image?.length().formatSize()})</a>#{/if}
+  #{else}<input type="file" name="user.image">#{/else}
+  
   <input type="submit" value="Update">
 #{/form}
 	

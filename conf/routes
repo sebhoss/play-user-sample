@@ -4,10 +4,11 @@
 
 # Home page
 GET     /                                       Users.index
-GET		/user/{id}								Users.show
-POST    /user/                					Users.persist
-PUT     /user/{id}            					Users.update
-DELETE  /user/{id}            					Users.delete
+GET		/user/{<\d+>id}/?						Users.show
+GET     /user/{<\d+>id}/image/?                 Users.image
+POST    /user/?               					Users.persist
+PUT     /user/{<\d+>id}/?      					Users.update
+DELETE  /user/{<\d+>id}/?      					Users.delete
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
