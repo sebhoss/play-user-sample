@@ -85,6 +85,11 @@ public class Users extends Controller {
         render(user);
     }
     
+    /**
+     * Offers the image attachment of a single user to download.
+     * 
+     * @param id	The ID of the user whose image should be shown.
+     */
     public static void image(Long id) {
     	// Fetch user from DB
         User user = safeFindById(id);
