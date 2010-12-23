@@ -93,12 +93,14 @@ public class Users extends Controller {
     public static void image(Long id) {
     	// Fetch user from DB
         User user = safeFindById(id);
-        
-        // Send image
+
+        // Check image availability
         if (user.image != null && user.image.exists()) {
+        	// Send image
         	response.contentType = user.image.type();
         	renderBinary(user.image.get(), user.image.length());
         } else {
+        	// Send 404
         	notFound();
         }
     }
